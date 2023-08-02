@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="user-input">
+            <h1>Border Previewer</h1>
+            <p>Use the slider to set the border radius on the box!</p>
+                <p class="text">
+                    Top Left: 
+                    <span id="tl-text">0px border</span>
+                </p>
+                <input type="range" value="0" id="tl-range" min="0" max="150">
+                <p class="text">
+                    Top Right: 
+                    <span id="tr-text">0px border</span>
+                </p>
+                <input type="range" value="0" id="tr-range" min="0" max="150">
+                <p class="text">
+                    Bottom Left:
+                    <span id="bl-text">0px border</span>
+                </p>
+                <input type="range" value="0" id="bl-range" min="0" max="150">
+                <p class="text">
+                    Bottom Right: 
+                    <span id="br-text">0px border</span>
+                </p>
+                <input type="range" value="0" id="br-range" min="0" max="150">
+        </div>
+        <div class="border-preview" id="border-preview">
+        </div>
+
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
