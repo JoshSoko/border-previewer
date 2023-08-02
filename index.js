@@ -2,6 +2,7 @@
 /* change settings of typescript with a tsconfig.json file, and confirm them with  the tsc command */
 /* there are many settings for tsconfig, including target, which allows you to change the js version converted to,
 watch, which lets typescript adjust the js file automatically on save, and lib, which allows you to add more libraries for the interpreter */
+// Declarations
 let tl_slider = document.getElementById('tl-range');
 let tr_slider = document.getElementById('tr-range');
 let bl_slider = document.getElementById('bl-range');
@@ -13,7 +14,7 @@ tl_slider.oninput = function () {
     let newVal = this.value;
     output.style.borderTopLeftRadius = (newVal + 'px');
     text.textContent = newVal + "px border";
-    console.log(text.textContent);
+    cssOutput();
 };
 // Top right
 tr_slider.oninput = function () {
@@ -21,7 +22,7 @@ tr_slider.oninput = function () {
     let newVal = this.value;
     output.style.borderTopRightRadius = (newVal + 'px');
     text.textContent = newVal + "px border";
-    console.log(text.textContent);
+    cssOutput();
 };
 // Bottom left
 bl_slider.oninput = function () {
@@ -29,7 +30,7 @@ bl_slider.oninput = function () {
     let newVal = this.value;
     output.style.borderBottomLeftRadius = (newVal + 'px');
     text.textContent = newVal + "px border";
-    console.log(text.textContent);
+    cssOutput();
 };
 // Bottom right
 br_slider.oninput = function () {
@@ -37,5 +38,23 @@ br_slider.oninput = function () {
     let newVal = this.value;
     output.style.borderBottomRightRadius = (newVal + 'px');
     text.textContent = newVal + "px border";
-    console.log(text.textContent);
+    cssOutput();
 };
+function cssOutput() {
+    let textbox = document.getElementById('text-output');
+    console.log("border-radius: " + tl_slider.value + "px " + tr_slider.value + "px " + br_slider.value + "px " + bl_slider.value + "px;");
+    textbox.textContent = "border-radius: " + tl_slider.value +
+        "px " + tr_slider.value +
+        "px " + br_slider.value +
+        "px " + bl_slider.value + "px;";
+}
+async function copy() {
+    var textbox = document.getElementById('text-output');
+    try {
+        await navigator.clipboard.writeText(textbox.textContent);
+        alert("Text copied to clipboard");
+    }
+    catch (err) {
+        alert('Failed to copy text to clipboard: ' + err);
+    }
+}
